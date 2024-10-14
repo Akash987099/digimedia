@@ -3,7 +3,7 @@
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
-echo "11111";
+// echo "11111";
 
 define('LARAVEL_START', microtime(true));
 
