@@ -3,7 +3,7 @@
     <div class="container">
         <nav class="navbar navbar-dark navbar-expand-lg py-0">
             <a href="" class="navbar-brand">
-                <h1 class="text-white fw-bold d-block">Digi<span class="text-secondary">Prolouge</span> </h1>
+                <h1 class="text-white fw-bold d-block">Digi<span class="text-secondary">Prologue</span> </h1>
             </a>
             <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
