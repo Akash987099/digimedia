@@ -12,7 +12,7 @@
                 </ol>
                 <div class="carousel-inner" role="listbox">
                     <div class="carousel-item active">
-                        <img src="img/carousel-1.jpg" class="img-fluid" alt="First slide">
+                        <img src="{{asset('img/carousel-1.jpg')}}" class="img-fluid" alt="First slide">
                         <div class="carousel-caption">
                             <div class="container carousel-content">
                                 <h6 class="text-secondary h4 animated fadeInUp">Best IT Solutions</h6>
@@ -24,7 +24,7 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="img/carousel-2.jpg" class="img-fluid" alt="Second slide">
+                        <img src="{{asset('img/carousel-2.jpg')}}" class="img-fluid" alt="Second slide">
                         <div class="carousel-caption">
                             <div class="container carousel-content">
                                 <h6 class="text-secondary h4 animated fadeInUp">Best IT Solutions</h6>
@@ -89,9 +89,9 @@
                 <div class="row g-5">
                     <div class="col-lg-5 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".3s">
                         <div class="h-100 position-relative">
-                            <img src="img/about-1.jpg" class="img-fluid w-75 rounded" alt="" style="margin-bottom: 25%;">
+                            <img src="{{asset('img/about-1.jpg')}}" class="img-fluid w-75 rounded" alt="" style="margin-bottom: 25%;">
                             <div class="position-absolute w-75" style="top: 25%; left: 25%;">
-                                <img src="img/about-2.jpg" class="img-fluid w-100 rounded" alt="">
+                                <img src="{{asset('img/about-2.jpg')}}" class="img-fluid w-100 rounded" alt="">
                             </div>
                         </div>
                     </div>
@@ -206,7 +206,7 @@
                     <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".3s">
                         <div class="project-item">
                             <div class="project-img">
-                                <img src="img/project-1.jpg" class="img-fluid w-100 rounded" alt="">
+                                <img src="{{asset('img/project-1.jpg')}}" class="img-fluid w-100 rounded" alt="">
                                 <div class="project-content">
                                     <a href="#" class="text-center">
                                         <h4 class="text-secondary">Web design</h4>
@@ -219,7 +219,7 @@
                     <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".5s">
                         <div class="project-item">
                             <div class="project-img">
-                                <img src="img/project-2.jpg" class="img-fluid w-100 rounded" alt="">
+                                <img src="{{asset('img/project-2.jpg')}}" class="img-fluid w-100 rounded" alt="">
                                 <div class="project-content">
                                     <a href="#" class="text-center">
                                         <h4 class="text-secondary">Cyber Security</h4>
@@ -232,7 +232,7 @@
                     <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
                         <div class="project-item">
                             <div class="project-img">
-                                <img src="img/project-3.jpg" class="img-fluid w-100 rounded" alt="">
+                                <img src="{{asset('img/project-3.jpg')}}" class="img-fluid w-100 rounded" alt="">
                                 <div class="project-content">
                                     <a href="#" class="text-center">
                                         <h4 class="text-secondary">Mobile Info</h4>
@@ -245,7 +245,7 @@
                     <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".3s">
                         <div class="project-item">
                             <div class="project-img">
-                                <img src="img/project-4.jpg" class="img-fluid w-100 rounded" alt="">
+                                <img src="{{asset('img/project-4.jpg')}}" class="img-fluid w-100 rounded" alt="">
                                 <div class="project-content">
                                     <a href="#" class="text-center">
                                         <h4 class="text-secondary">Web Development</h4>
@@ -258,7 +258,7 @@
                     <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".5s">
                         <div class="project-item">
                             <div class="project-img">
-                                <img src="img/project-5.jpg" class="img-fluid w-100 rounded" alt="">
+                                <img src="{{asset('img/project-5.jpg')}}" class="img-fluid w-100 rounded" alt="">
                                 <div class="project-content">
                                     <a href="#" class="text-center">
                                         <h4 class="text-secondary">Digital Marketing</h4>
@@ -271,7 +271,7 @@
                     <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
                         <div class="project-item">
                             <div class="project-img">
-                                <img src="img/project-6.jpg" class="img-fluid w-100 rounded" alt="">
+                                <img src="{{asset('img/project-6.jpg')}}" class="img-fluid w-100 rounded" alt="">
                                 <div class="project-content">
                                     <a href="#" class="text-center">
                                         <h4 class="text-secondary">keyword Research</h4>
@@ -297,7 +297,7 @@
                 <div class="row g-5 justify-content-center">
                     <div class="col-lg-6 col-xl-4 wow fadeIn" data-wow-delay=".3s">
                         <div class="blog-item position-relative bg-light rounded">
-                            <img src="img/blog-1.jpg" class="img-fluid w-100 rounded-top" alt="">
+                            <img src="{{asset('img/blog-1.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
                             <span class="position-absolute px-4 py-3 bg-primary text-white rounded" style="top: -28px; right: 20px;">Web Design</span>
                             <div class="blog-btn d-flex justify-content-between position-relative px-3" style="margin-top: -75px;">
                                 <div class="blog-icon btn btn-secondary px-3 rounded-pill my-auto">
@@ -315,7 +315,7 @@
                                 </div>
                             </div>
                             <div class="blog-content text-center position-relative px-3" style="margin-top: -25px;">
-                                <img src="img/admin.jpg" class="img-fluid rounded-circle border border-4 border-white mb-3" alt="">
+                                <img src="{{asset('img/admin.jpg')}}" class="img-fluid rounded-circle border border-4 border-white mb-3" alt="">
                                 <h5 class="">By Daniel Martin</h5>
                                 <span class="text-secondary">24 March 2023</span>
                                 <p class="py-2">Lorem ipsum dolor sit amet elit. Sed efficitur quis purus ut interdum. Aliquam dolor eget urna ultricies tincidunt libero sit amet</p>
@@ -328,7 +328,7 @@
                     </div>
                     <div class="col-lg-6 col-xl-4 wow fadeIn" data-wow-delay=".5s">
                         <div class="blog-item position-relative bg-light rounded">
-                            <img src="img/blog-2.jpg" class="img-fluid w-100 rounded-top" alt="">
+                            <img src="{{asset('img/blog-2.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
                             <span class="position-absolute px-4 py-3 bg-primary text-white rounded" style="top: -28px; right: 20px;">Development</span>
                             <div class="blog-btn d-flex justify-content-between position-relative px-3" style="margin-top: -75px;">
                                 <div class="blog-icon btn btn-secondary px-3 rounded-pill my-auto">
@@ -346,7 +346,7 @@
                                 </div>
                             </div>
                             <div class="blog-content text-center position-relative px-3" style="margin-top: -25px;">
-                                <img src="img/admin.jpg" class="img-fluid rounded-circle border border-4 border-white mb-3" alt="">
+                                <img src="{{asset('img/admin.jpg')}}" class="img-fluid rounded-circle border border-4 border-white mb-3" alt="">
                                 <h5 class="">By Daniel Martin</h5>
                                 <span class="text-secondary">23 April 2023</span>
                                 <p class="py-2">Lorem ipsum dolor sit amet elit. Sed efficitur quis purus ut interdum. Aliquam dolor eget urna ultricies tincidunt libero sit amet</p>
@@ -359,7 +359,7 @@
                     </div>
                     <div class="col-lg-6 col-xl-4 wow fadeIn" data-wow-delay=".7s">
                         <div class="blog-item position-relative bg-light rounded">
-                            <img src="img/blog-3.jpg" class="img-fluid w-100 rounded-top" alt="">
+                            <img src="{{asset('img/blog-3.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
                             <span class="position-absolute px-4 py-3 bg-primary text-white rounded" style="top: -28px; right: 20px;">Mobile App</span>
                             <div class="blog-btn d-flex justify-content-between position-relative px-3" style="margin-top: -75px;">
                                 <div class="blog-icon btn btn-secondary px-3 rounded-pill my-auto">
@@ -377,7 +377,7 @@
                                 </div>
                             </div>
                             <div class="blog-content text-center position-relative px-3" style="margin-top: -25px;">
-                                <img src="img/admin.jpg" class="img-fluid rounded-circle border border-4 border-white mb-3" alt="">
+                                <img src="{{asset('img/admin.jpg')}}" class="img-fluid rounded-circle border border-4 border-white mb-3" alt="">
                                 <h5 class="">By Daniel Martin</h5>
                                 <span class="text-secondary">30 jan 2023</span>
                                 <p class="py-2">Lorem ipsum dolor sit amet elit. Sed efficitur quis purus ut interdum. Aliquam dolor eget urna ultricies tincidunt libero sit amet</p>
@@ -406,7 +406,7 @@
                         <div class="team-content">
                             <div class="team-img-icon">
                                 <div class="team-img rounded-circle">
-                                    <img src="img/team-1.jpg" class="img-fluid w-100 rounded-circle" alt="">
+                                    <img src="{{asset('img/team-1.jpg')}}" class="img-fluid w-100 rounded-circle" alt="">
                                 </div>
                                 <div class="team-name text-center py-3">
                                     <h4 class="">Full Name</h4>
@@ -425,7 +425,7 @@
                         <div class="team-content">
                             <div class="team-img-icon">
                                 <div class="team-img rounded-circle">
-                                    <img src="img/team-2.jpg" class="img-fluid w-100 rounded-circle" alt="">
+                                    <img src="{{asset('img/team-2.jpg')}}" class="img-fluid w-100 rounded-circle" alt="">
                                 </div>
                                 <div class="team-name text-center py-3">
                                     <h4 class="">Full Name</h4>
@@ -444,7 +444,7 @@
                         <div class="team-content">
                             <div class="team-img-icon">
                                 <div class="team-img rounded-circle">
-                                    <img src="img/team-3.jpg" class="img-fluid w-100 rounded-circle" alt="">
+                                    <img src="{{asset('img/team-3.jpg')}}" class="img-fluid w-100 rounded-circle" alt="">
                                 </div>
                                 <div class="team-name text-center py-3">
                                     <h4 class="">Full Name</h4>
@@ -463,7 +463,7 @@
                         <div class="team-content">
                             <div class="team-img-icon">
                                 <div class="team-img rounded-circle">
-                                    <img src="img/team-4.jpg" class="img-fluid w-100 rounded-circle" alt="">
+                                    <img src="{{asset('img/team-4.jpg')}}" class="img-fluid w-100 rounded-circle" alt="">
                                 </div>
                                 <div class="team-name text-center py-3">
                                     <h4 class="">Full Name</h4>
@@ -494,7 +494,7 @@
                     <div class="testimonial-item border p-4">
                         <div class="d-flex align-items-center">
                             <div class="">
-                                <img src="img/testimonial-1.jpg" alt="">
+                                <img src="{{asset('img/testimonial-1.jpg')}}" alt="">
                             </div>
                             <div class="ms-4">
                                 <h4 class="text-secondary">Client Name</h4>
@@ -515,7 +515,7 @@
                     <div class="testimonial-item border p-4">
                         <div class=" d-flex align-items-center">
                             <div class="">
-                                <img src="img/testimonial-2.jpg" alt="">
+                                <img src="{{asset('img/testimonial-2.jpg')}}" alt="">
                             </div>
                             <div class="ms-4">
                                 <h4 class="text-secondary">Client Name</h4>
@@ -536,7 +536,7 @@
                     <div class="testimonial-item border p-4">
                         <div class=" d-flex align-items-center">
                             <div class="">
-                                <img src="img/testimonial-3.jpg" alt="">
+                                <img src="{{asset('img/testimonial-3.jpg')}}" alt="">
                             </div>
                             <div class="ms-4">
                                 <h4 class="text-secondary">Client Name</h4>
@@ -557,7 +557,7 @@
                     <div class="testimonial-item border p-4">
                         <div class=" d-flex align-items-center">
                             <div class="">
-                                <img src="img/testimonial-4.jpg" alt="">
+                                <img src="{{asset('img/testimonial-4.jpg')}}" alt="">
                             </div>
                             <div class="ms-4">
                                 <h4 class="text-secondary">Client Name</h4>
