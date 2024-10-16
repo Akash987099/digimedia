@@ -30,6 +30,27 @@
           </span>
           </a>
        </div>
+
+       <ul class="sidebar-menu">
+         <li class="dropdown ">
+            <a href="{{route('admin.index')}}" class="nav-link  asdffd"><i data-feather="monitor"></i><span>Dashboard</span></a> 
+         </li>
+
+        
+         
+         
+         <li class="dropdown">
+            <a href="#" class="menu-toggle nav-link has-dropdown  "><i
+               data-feather="calendar"></i><span>CMS</span></a>
+            <ul class="dropdown-menu" >
+               <li><a class="nav-link " href="{{route('admin.menus')}}">Menu Master</a></li>
+               <li><a class="nav-link " href="{{route('admin.submenus')}}">Submenu Master</a></li>
+               <li><a class="nav-link " href="{{route('admin.pages')}}">Page Master</a></li>
+              
+            </ul>
+         </li>
+         
+      </ul>
      
     </aside>
  </div>

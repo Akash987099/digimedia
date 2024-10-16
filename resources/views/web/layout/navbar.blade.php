@@ -10,7 +10,42 @@
             </button>
             <div class="collapse navbar-collapse bg-transparent" id="navbarCollapse">
                 <div class="navbar-nav ms-auto mx-xl-auto p-0">
-                    <a href="" class="nav-item nav-link active text-secondary">Home</a>
+
+                    @foreach($menus as $menu)
+
+                    @if($menu->submenus->count())
+                    {{-- <a href="" class="nav-item nav-link active text-secondary">Home</a> --}}
+
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ $menu->name }}</a>
+                        @foreach($menu->submenus as $submenu)
+                        @if($submenu->page)
+                        <div class="dropdown-menu rounded">
+                            <a href="blog.html" class="dropdown-item">{{ $submenu->name }}</a>
+                        </div>
+                        @endif
+                        @endforeach
+
+                    </div>
+
+                    @else
+
+                    @if($menu->page)
+
+                    <a href="" class="nav-item nav-link active text-secondary"> {{ $menu->name }}</a>
+
+                    @else
+
+                    <a href="" class="nav-item nav-link active text-secondary"> {{ $menu->name }}</a>
+
+
+                    @endif
+
+                    @endif
+
+                    @endforeach
+
+                    {{-- <a href="" class="nav-item nav-link active text-secondary">Home</a> --}}
                     {{-- <a href="about.html" class="nav-item nav-link">About</a>
                     <a href="service.html" class="nav-item nav-link">Services</a>
                     <a href="project.html" class="nav-item nav-link">Projects</a> --}}
@@ -24,6 +59,8 @@
                         </div>
                     </div> --}}
                     {{-- <a href="contact.html" class="nav-item nav-link">Contact</a> --}}
+
+
                 </div>
             </div>
             <div class="d-none d-xl-flex flex-shirink-0">
