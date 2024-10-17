@@ -50,7 +50,11 @@ class PageController extends Controller
         
         $sign = Admin::where('id' , 1)->first();
 
-        return view('web.index', compact('menu','menus', 'sign' , 'submenu', 'page'));
+        $titles1 = json_decode($page->banner_title);
+    $titles2 = json_decode($page->banner_subtitle);
+    $images = json_decode($page->banner_image);
+
+        return view('web.index', compact('menu','menus', 'sign' , 'submenu', 'page' , 'titles1' , 'titles2' , 'images'));
     }
 
     // For Menu without Submenu
@@ -68,7 +72,11 @@ class PageController extends Controller
 
         $sign = Admin::where('id' , 1)->first();
 
-        return view('web.index', compact('menu','menus', 'page', 'sign'));
+        $titles1 = json_decode($page->banner_title);
+        $titles2 = json_decode($page->banner_subtitle);
+        $images = json_decode($page->banner_image);
+
+        return view('web.index', compact('menu','menus', 'page', 'sign' , 'titles1' , 'titles2' , 'images'));
     }
 
     // For Menu with Submenu

@@ -3,9 +3,13 @@
        
 @section('web')
 
+@if(!empty($images) && is_array($images))
+
         <!-- Carousel Start -->
         <div class="container-fluid px-0">
             <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
+
+             
 
                 <ol class="carousel-indicators">
                     @foreach($images as $key => $image)
@@ -21,8 +25,8 @@
                             <div class="carousel-caption">
                                 <div class="container carousel-content">
                                     <h6 class="text-secondary h4 animated fadeInUp">Best IT Solutions</h6>
-                                    <h1 class="text-white display-1 mb-4 animated fadeInRight">{{ $titles2[$key] ?? 'Default Subtitle' }}</h1>
-                                    <p class="mb-4 text-white fs-5 animated fadeInDown">Lorem ipsum dolor sit amet elit. Sed efficitur quis purus ut interdum. Pellentesque aliquam dolor eget urna ultricies tincidunt.</p>
+                                    <h1 class="text-white display-1 mb-4 animated fadeInRight">{{ $titles1[$key] ?? 'Default Subtitle' }}</h1>
+                                    <p class="mb-4 text-white fs-5 animated fadeInDown">{{ $titles2[$key] ?? 'Default Subtitle' }}</p>
                                     <a href="#" class="me-2"><button type="button" class="px-4 py-sm-3 px-sm-5 btn btn-primary rounded-pill carousel-content-btn1 animated fadeInLeft">Read More</button></a>
                                     <a href="#" class="ms-2"><button type="button" class="px-4 py-sm-3 px-sm-5 btn btn-primary rounded-pill carousel-content-btn2 animated fadeInRight">Contact Us</button></a>
                                 </div>
@@ -30,6 +34,7 @@
                         </div>
                     @endforeach
                 </div>
+
 
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -41,6 +46,8 @@
                 </button>
             </div>
         </div>
+
+        @endif
         <!-- Carousel End -->
 
 
