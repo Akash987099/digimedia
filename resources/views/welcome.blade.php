@@ -63,7 +63,7 @@
     <div class="coming-soon">
         <h1>Coming Soon</h1>
         <p>We are working hard to bring you something awesome. Stay tuned!</p>
-        <div class="countdown">Launching in 20 days...</div>
+        <div class="countdown">Launching in 19 days...</div>
     </div>
 
     <div class="footer">
