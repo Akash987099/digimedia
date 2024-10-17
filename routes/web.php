@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PageController;
+use App\http\Controllers\PagedetailsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -73,7 +74,15 @@ Route::prefix('admin')->middleware(['auth:admin'])->name('admin.')->group(functi
 
     });
 
+    Route::controller(PagedetailsController::class)->group(function(){
+
+        Route::match(['get' , 'post'] , 'banner-save' , 'bannerSave')->name('banner-save');
+
+
+    });
+
 });
+
 
 Route::controller(PageController::class)->group(function() {
     

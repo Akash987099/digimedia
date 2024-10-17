@@ -24,8 +24,12 @@ class PageController extends Controller
     $page = Page::where('slug', 'home')->firstOrFail();
     // dd($page);
 
+    $titles1 = json_decode($page->banner_title);
+    $titles2 = json_decode($page->banner_subtitle);
+    $images = json_decode($page->banner_image);
 
-    return view('web.index', compact('menu' , 'menus', 'page'));
+
+    return view('web.index', compact('menu' , 'menus', 'page' , 'titles1' , 'titles2' , 'images'));
 }
 
 
@@ -34,30 +38,19 @@ class PageController extends Controller
 
         // dd($request->all());
 
-        $menus = Menu::with(['submenus.page'])->where('slug', '!=', 'home')->get();
-        $menu = Menu::where('slug', $menu_slug)->where('slug', '!=', 'home')->firstOrFail();
+        $menus = Menu::with(['submenus.page'])->get();
+        $menu = Menu::where('slug', $menu_slug)->firstOrFail();
         $submenu = Submenu::where('slug', $submenu_slug)
                     ->where('menu_id', $menu->id)
                     ->firstOrFail();
         $page = Page::where('slug', $page_slug)
                     ->where('submenu_id', $submenu->id)
                     ->firstOrFail();
-        $galleryData = DB::table('gallery_tbl')
-        ->where('page_id', $page->id)
-        ->where('status', '1')
-        ->get();
-        $partnerData = DB::table('gallery_tbl')
-        ->where('page_id', $page->id)
-        ->where('status', '2')
-        ->get();
 
-        $tblData     = DB::table('page_tbl')->where('page_id' , $page->id)->get();
-
-        $linksData     = DB::table('pages_link_tbl')->where('page_id' , $page->id)->get();
         
         $sign = Admin::where('id' , 1)->first();
 
-        return view('web.index', compact('menu','menus', 'sign' , 'submenu', 'page','galleryData','partnerData','tblData', 'linksData'));
+        return view('web.index', compact('menu','menus', 'sign' , 'submenu', 'page'));
     }
 
     // For Menu without Submenu
@@ -66,27 +59,16 @@ class PageController extends Controller
 
         // dd($request->all());
 
-        $menu = Menu::where('slug', $menu_slug)->where('slug', '!=', 'home')->firstOrFail();
-        $menus = Menu::with(['submenus.page'])->where('slug', '!=', 'home')->get();
+        $menu = Menu::where('slug', $menu_slug)->firstOrFail();
+        $menus = Menu::with(['submenus.page'])->get();
         $page = Page::where('slug', $page_slug)
                     ->where('menu_id', $menu->id)
                     ->firstOrFail();
-        $galleryData = DB::table('gallery_tbl')
-        ->where('page_id', $page->id)
-        ->where('status', '1')
-        ->get();
-        $partnerData = DB::table('gallery_tbl')
-        ->where('page_id', $page->id)
-        ->where('status', '2')
-        ->get();
-       
-        $tblData     = DB::table('page_tbl')->where('page_id' , $page->id)->get();
-
-        $linksData     = DB::table('pages_link_tbl')->where('page_id' , $page->id)->get();
+    
 
         $sign = Admin::where('id' , 1)->first();
 
-        return view('web.index', compact('menu','menus', 'page', 'sign' , 'galleryData','partnerData','tblData','linksData'));
+        return view('web.index', compact('menu','menus', 'page', 'sign'));
     }
 
     // For Menu with Submenu

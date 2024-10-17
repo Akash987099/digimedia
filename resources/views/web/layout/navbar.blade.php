@@ -21,7 +21,11 @@
                         @foreach($menu->submenus as $submenu)
                         @if($submenu->page)
                         <div class="dropdown-menu rounded">
-                            <a href="blog.html" class="dropdown-item">{{ $submenu->name }}</a>
+                            <a href="{{ route('page.show', [
+                                            'menu_slug' => $menu->slug,
+                                            'submenu_slug' => $submenu->slug,
+                                            'page_slug' => $submenu->page->slug
+                                        ]) }}" class="dropdown-item">{{ $submenu->name }}</a>
                         </div>
                         @endif
                         @endforeach
@@ -32,7 +36,7 @@
 
                     @if($menu->page)
 
-                    <a href="" class="nav-item nav-link active text-secondary"> {{ $menu->name }}</a>
+                    <a href="{{ isset($menu->page) ? route('page.show.menu', ['menu_slug' => $menu->slug, 'page_slug' => $menu->page->slug]) : '#' }}" class="nav-item nav-link active text-secondary"> {{ $menu->name }}</a>
 
                     @else
 
