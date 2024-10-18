@@ -77,6 +77,7 @@ Route::prefix('admin')->middleware(['auth:admin'])->name('admin.')->group(functi
     Route::controller(PagedetailsController::class)->group(function(){
 
         Route::match(['get' , 'post'] , 'banner-save' , 'bannerSave')->name('banner-save');
+        Route::match(['get' , 'post'] , 'about-save' , 'aboutSave')->name('about-save');
 
 
     });

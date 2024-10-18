@@ -38,13 +38,13 @@
                                         aria-selected="false">Banner</a>
 
                                 </li>
-                                {{-- <li class="nav-item">
+                                <li class="nav-item">
 
-                                    <a class="nav-link tab_click class_check" id="contact-tab4" data-toggle="tab"
-                                        href="#contact4" role="tab" aria-controls="contact4"
-                                        aria-selected="false">Intransit</a>
+                                    <a class="nav-link tab_click class_check" id="about-tab1" data-toggle="tab"
+                                        href="#about" role="tab" aria-controls="about"
+                                        aria-selected="false">About Us</a>
 
-                                </li> --}}
+                                </li>
 
                                 {{-- <li class="nav-item">
 
@@ -103,7 +103,7 @@
 
                                 
 
-
+{{-- banner --}}
 
                                 <div class="tab-pane fade show active my-2" id="banner" role="tabpanel"
                                     aria-labelledby="banner-tab">
@@ -182,12 +182,90 @@
 
                                 </div>
 
-                                <br>
-                                {{-- <div class="text-left px-2">
-                                    <button type="submit" class="btn btn-primary btn-sm" id="Addbutton">Add</button>
-                                  </div> --}}
-            
-                                  <br>
+                                {{-- banner end --}}
+
+
+                                {{-- About Us --}}
+
+                                <div class="tab-pane fade show my-2" id="about" role="tabpanel"
+                                aria-labelledby="about-tab1">
+
+
+                                    <div class="row">
+  
+
+                                        <div class="col-lg-12">
+                                      
+                                          <div class="card">
+                                            <div class="card-body">
+                                              <h5 class="card-title">About Us Form</h5>
+                                      
+                                              <!-- Vertical Form -->
+                                              <form class="row g-3" id="aboutpage" method="POST" enctype="multipart/form-data">
+                                                @csrf
+                                      
+                                                <div id="dynamic-fields">
+
+                                                    {{-- @if(!empty($page->about_image1)) --}}
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <label for="inputName4" class="form-label">Title<span class="validation">*</span></label>
+                                                                <input type="text" name="title" value="{{$page->about_title}}" class="form-control citizen" required>
+                                                                <span class="error"></span>
+                                                            </div>
+
+                                                            <div class="col-3">
+                                                                <label for="inputName4" class="form-label">Image<span class="validation">*</span></label>
+                                                                <input type="file" name="file1" class="form-control citizen" required>
+                                                                <span class="error"></span>
+                                                            </div>
+
+                                                            <div class="col-3">
+                                                                <label for="inputName4" class="form-label">Image<span class="validation"></span></label>
+                                                                <input type="file" name="file2" class="form-control citizen">
+                                                                <span class="error"></span>
+                                                            </div>
+                                                
+                                                            
+                                                            <div class="col-12">
+                                                                <label for="" class="form-label">Description <span class="validation">*</span></label>
+                                                                <textarea name="description" id="" rows="3" class="form-control">{!! $page->about_content !!}</textarea>
+                                                                <span id="description-error"></span>
+                                                            </div>
+
+                                                            <div class="col-3 px-2">
+                                                                    <img src="{{asset(''.$page->about_image1)}}" alt="" height="100">
+                                                                </div>
+
+                                                                <div class="col-3 px-2">
+                                                                    <img src="{{asset(''.$page->about_image2)}}" alt="" height="100">
+                                                                </div>
+
+                                                            
+                                                
+                                                        </div>
+                                                        {{-- @endif --}}
+                                                 
+                                                </div>
+                                      
+                                                  <div class="col-12 p-2">
+                                                    <div class="text-left">
+                                                      <button type="submit" class="btn btn-primary btn-sm" id="update">Update</button>
+                                                    </div>
+                                                  </div>
+                                             
+                                              </form><!-- Vertical Form -->
+                                      
+                                            </div>
+                                          </div>
+                                      
+                                          
+                                        </div>
+                                      </div>
+                            </div>
+
+                            {{-- About end --}}
+
 
                             </div>
 
@@ -310,6 +388,64 @@
                 });
             }
         });
+    });
+
+    // about
+
+    $('#aboutpage').on('submit' , function(e){
+
+        e.preventDefault();
+
+        var formData = new FormData(this);
+        var id = $('#pageinputid').val();
+        formData.append('id', id);
+
+        Swal.fire({
+            title: 'Confirm Submission',
+            text: 'Are you sure you want to submit the form?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, submit!',
+            cancelButtonText: 'Cancel',
+        }).then((result) => {
+            if (result.isConfirmed) {
+               
+                $.ajax({
+                    url: "{{route('admin.about-save')}}", // Your route URL
+                    type: "POST",
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        if (response.status === "success") {
+                            Swal.fire({
+                                title: 'Success!',
+                                text: 'Form submitted successfully!',
+                                icon: 'success',
+                                confirmButtonText: 'OK'
+                            }).then(() => {
+                                window.location.reload(); // Reload page on success
+                            });
+                        } else if (response.status === "error") {
+                            $.each(response.message, function(field, message) {
+                                $('#' + field).addClass('is-invalid');
+                                $('#' + field + '-error').text(message).addClass('text-danger');
+                            });
+                        }
+                    },
+                    error: function(xhr) {
+                        Swal.fire({
+                            title: 'Error!',
+                            text: 'There was a problem submitting the form.',
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        });
+                        console.error(xhr.responseText);
+                    }
+                });
+            }
+        });
+
     });
     
     

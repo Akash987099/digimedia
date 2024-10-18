@@ -62,4 +62,50 @@ class PagedetailsController extends Controller
 
     }
 
+    public function aboutSave(Request $request){
+
+        // dd($request->all());
+
+        $title = $request->title;
+        $description = $request->description;
+        $id  = $request->id;
+
+        $data = [
+
+            'about_title' => $title,
+            'about_content' => $description,
+
+        ];
+
+        if ($request->hasFile('file1')) {
+            $document = $request->file('file1');
+            $originalName = pathinfo($document->getClientOriginalName(), PATHINFO_FILENAME);
+            $extension = $document->getClientOriginalExtension();
+            $uniqueName = $originalName . '_' . uniqid() . '.' . $extension;
+            $documentPath = $document->move('about', $uniqueName , 'public');
+            
+            $data['about_image1'] = $documentPath;
+        }
+
+        if ($request->hasFile('file2')) {
+            $document = $request->file('file2');
+            $originalName = pathinfo($document->getClientOriginalName(), PATHINFO_FILENAME);
+            $extension = $document->getClientOriginalExtension();
+            $uniqueName = $originalName . '_' . uniqid() . '.' . $extension;
+            $documentPath = $document->move('about', $uniqueName , 'public');
+            
+            $data['about_image2'] = $documentPath;
+        }
+
+        $page = Page::where('id' , $request->id)->update($data);
+      
+        if($page){
+            return response()->json(['status' => 'success']);
+        }
+
+        return response()->json(['status' => 'error']);
+
+
+    }
+
 }

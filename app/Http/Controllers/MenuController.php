@@ -203,7 +203,7 @@ class MenuController extends Controller
         $titles2 = json_decode($page->banner_subtitle);
         $images = json_decode($page->banner_image);
 
-        return view('admin.pagedetails',compact('id' , 'titles1' , 'titles2' , 'images'));
+        return view('admin.pagedetails',compact('id' , 'titles1' , 'titles2' , 'images' , 'page'));
     }
 
     public function pagesSave(Request $request)
