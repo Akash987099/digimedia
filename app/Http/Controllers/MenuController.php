@@ -195,7 +195,15 @@ class MenuController extends Controller
 
     public function pageDetails($id){
 
-        return view('admin.pagedetails',compact('id'));
+        $page = Page::where('id' , $id)->first();
+
+        // dd($pagedata);
+
+        $titles1 = json_decode($page->banner_title);
+        $titles2 = json_decode($page->banner_subtitle);
+        $images = json_decode($page->banner_image);
+
+        return view('admin.pagedetails',compact('id' , 'titles1' , 'titles2' , 'images'));
     }
 
     public function pagesSave(Request $request)

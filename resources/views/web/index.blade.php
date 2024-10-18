@@ -25,8 +25,8 @@
                             <div class="carousel-caption">
                                 <div class="container carousel-content">
                                     <h6 class="text-secondary h4 animated fadeInUp">Best IT Solutions</h6>
-                                    <h1 class="text-white display-1 mb-4 animated fadeInRight">{{ $titles1[$key] ?? 'Default Subtitle' }}</h1>
-                                    <p class="mb-4 text-white fs-5 animated fadeInDown">{{ $titles2[$key] ?? 'Default Subtitle' }}</p>
+                                    <h1 class="text-white display-1 mb-4 animated fadeInRight">{{ $titles1[$key] ?? ' ' }}</h1>
+                                    <p class="mb-4 text-white fs-5 animated fadeInDown">{{ $titles2[$key] ?? ' ' }}</p>
                                     <a href="#" class="me-2"><button type="button" class="px-4 py-sm-3 px-sm-5 btn btn-primary rounded-pill carousel-content-btn1 animated fadeInLeft">Read More</button></a>
                                     <a href="#" class="ms-2"><button type="button" class="px-4 py-sm-3 px-sm-5 btn btn-primary rounded-pill carousel-content-btn2 animated fadeInRight">Contact Us</button></a>
                                 </div>

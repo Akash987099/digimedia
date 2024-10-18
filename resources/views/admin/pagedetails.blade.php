@@ -18,7 +18,7 @@
 
                         <div class="card-header supreme-container">
 
-                            <h4>All Settings</h4>
+                            {{-- <h4>All Settings</h4> --}}
 
                         </div>
 
@@ -35,7 +35,7 @@
 
                                     <a class="nav-link active tab_click class_check btn-sm" id="banner-tab" data-toggle="tab"
                                         href="#banner" role="tab" aria-controls="contact"
-                                        aria-selected="false">GST Setting</a>
+                                        aria-selected="false">Banner</a>
 
                                 </li>
                                 {{-- <li class="nav-item">
@@ -125,25 +125,37 @@
                                                     <input type="hidden" name="updateid" id="updateid" >
                                           
                                                     <div id="dynamic-fields">
+
+                                                        @foreach($images as $key => $image)
                                                         <div class="row">
-                                                            <div class="col-4">
+                                                            <div class="col-3">
                                                                 <label for="inputName4" class="form-label">Title 1<span class="validation">*</span></label>
-                                                                <input type="text" name="title1[]" class="form-control citizen" required>
+                                                                <input type="text" name="title1[]" value="{{ $titles1[$key] ?? 'Default Subtitle' }}" class="form-control citizen" required>
                                                                 <span class="error"></span>
                                                             </div>
                                                     
-                                                            <div class="col-4">
+                                                            <div class="col-3">
                                                                 <label for="inputName4" class="form-label">Title 2<span class="validation">*</span></label>
-                                                                <input type="text" name="title2[]" class="form-control citizen" required>
+                                                                <input type="text" name="title2[]" value="{{ $titles2[$key] ?? 'Default Subtitle' }}" class="form-control citizen" required>
                                                                 <span class="error"></span>
                                                             </div>
                                                     
-                                                            <div class="col-4">
+                                                            
+                                                            <div class="col-3">
                                                                 <label for="inputName4" class="form-label">Image<span class="validation">*</span></label>
                                                                 <input type="file" name="image[]" class="form-control citizen" required>
                                                                 <span class="error"></span>
                                                             </div>
+
+
+                                                            <div class="col-3">
+                                                                <img src="{{ asset('uploads/' . $image) }}" alt="" height="150">
+                                                             </div>
+
                                                         </div>
+                                                        @endforeach
+
+
                                                     </div>
                                           
                                                       <div class="col-12 p-2">

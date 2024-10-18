@@ -17,6 +17,7 @@ class PagedetailsController extends Controller
         // ]);
 
         // dd($request->all());
+        
     
         $titles = [];
         $images = [];
