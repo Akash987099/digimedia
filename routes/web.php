@@ -6,7 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PageController;
-use App\http\Controllers\PagedetailsController;
+use App\Http\Controllers\PagedetailsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
