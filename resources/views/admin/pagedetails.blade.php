@@ -126,34 +126,36 @@
                                           
                                                     <div id="dynamic-fields">
 
+                                                        @if(!empty($images) && is_array($images))
                                                         @foreach($images as $key => $image)
-                                                        <div class="row">
-                                                            <div class="col-3">
-                                                                <label for="inputName4" class="form-label">Title 1<span class="validation">*</span></label>
-                                                                <input type="text" name="title1[]" value="{{ $titles1[$key] ?? 'Default Subtitle' }}" class="form-control citizen" required>
-                                                                <span class="error"></span>
-                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-3">
+                                                                    <label for="inputName4" class="form-label">Title 1<span class="validation">*</span></label>
+                                                                    <input type="text" name="title1[]" value="{{ $titles1[$key] ?? 'Default Subtitle' }}" class="form-control citizen" required>
+                                                                    <span class="error"></span>
+                                                                </div>
                                                     
-                                                            <div class="col-3">
-                                                                <label for="inputName4" class="form-label">Title 2<span class="validation">*</span></label>
-                                                                <input type="text" name="title2[]" value="{{ $titles2[$key] ?? 'Default Subtitle' }}" class="form-control citizen" required>
-                                                                <span class="error"></span>
-                                                            </div>
+                                                                <div class="col-3">
+                                                                    <label for="inputName4" class="form-label">Title 2<span class="validation">*</span></label>
+                                                                    <input type="text" name="title2[]" value="{{ $titles2[$key] ?? 'Default Subtitle' }}" class="form-control citizen" required>
+                                                                    <span class="error"></span>
+                                                                </div>
                                                     
-                                                            
-                                                            <div class="col-3">
-                                                                <label for="inputName4" class="form-label">Image<span class="validation">*</span></label>
-                                                                <input type="file" name="image[]" class="form-control citizen" required>
-                                                                <span class="error"></span>
+                                                                <div class="col-3">
+                                                                    <label for="inputName4" class="form-label">Image<span class="validation">*</span></label>
+                                                                    <input type="file" name="image[]" class="form-control citizen" required>
+                                                                    <span class="error"></span>
+                                                                </div>
+                                                    
+                                                                <div class="col-3">
+                                                                    <img src="{{ asset('uploads/' . $image) }}" alt="" height="150">
+                                                                </div>
                                                             </div>
-
-
-                                                            <div class="col-3">
-                                                                <img src="{{ asset('uploads/' . $image) }}" alt="" height="150">
-                                                             </div>
-
-                                                        </div>
                                                         @endforeach
+                                                    @else
+                                                        <p>No images found.</p>
+                                                    @endif
+                                                    
 
 
                                                     </div>
