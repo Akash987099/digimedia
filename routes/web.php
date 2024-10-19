@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PagedetailsController;
+use App\Http\Controllers\ServiceController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -79,6 +80,16 @@ Route::prefix('admin')->middleware(['auth:admin'])->name('admin.')->group(functi
         Route::match(['get' , 'post'] , 'banner-save' , 'bannerSave')->name('banner-save');
         Route::match(['get' , 'post'] , 'about-save' , 'aboutSave')->name('about-save');
 
+
+    });
+
+    Route::controller(ServiceController::class)->group(function(){
+
+        Route::match(['get' , 'post'] , 'service' , 'service')->name('service');
+        Route::match(['get' , 'post'] , 'ServiceAdd' , 'ServiceAdd')->name('ServiceAdd');
+        Route::match(['get' , 'post'] , 'serviceAjax' , 'serviceAjax')->name('serviceAjax');
+        Route::match(['get' , 'post'] , 'service-delete' , 'serviceDelete')->name('service-delete');
+        Route::match(['get' , 'post'] , 'service-update' , 'serviceUpdate')->name('service-update');
 
     });
 

@@ -4,8 +4,13 @@ use App\Models\Menu;
 use App\Models\Submenu;
 use App\Models\Page;
 use App\Models\Admin;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+
 
 class PageController extends Controller
 {
@@ -22,14 +27,15 @@ class PageController extends Controller
     // dd($menu);
 
     $page = Page::where('slug', 'home')->firstOrFail();
+
+    $service = Service::where('page_id', 2)->get();
     // dd($page);
 
     $titles1 = json_decode($page->banner_title);
     $titles2 = json_decode($page->banner_subtitle);
     $images = json_decode($page->banner_image);
 
-
-    return view('web.index', compact('menu' , 'menus', 'page' , 'titles1' , 'titles2' , 'images'));
+    return view('web.index', compact('menu' , 'menus', 'page' , 'titles1' , 'titles2' , 'images' , 'service'));
 }
 
 
@@ -47,6 +53,8 @@ class PageController extends Controller
                     ->where('submenu_id', $submenu->id)
                     ->firstOrFail();
 
+                    dd($page);
+
         
         $sign = Admin::where('id' , 1)->first();
 
@@ -54,7 +62,9 @@ class PageController extends Controller
     $titles2 = json_decode($page->banner_subtitle);
     $images = json_decode($page->banner_image);
 
-        return view('web.index', compact('menu','menus', 'sign' , 'submenu', 'page' , 'titles1' , 'titles2' , 'images'));
+    $service = Service::where('page_id', $page->id)->get();
+
+        return view('web.index', compact('menu','menus', 'sign' , 'submenu', 'page' , 'titles1' , 'titles2' , 'images' , 'service'));
     }
 
     // For Menu without Submenu
@@ -76,7 +86,10 @@ class PageController extends Controller
         $titles2 = json_decode($page->banner_subtitle);
         $images = json_decode($page->banner_image);
 
-        return view('web.index', compact('menu','menus', 'page', 'sign' , 'titles1' , 'titles2' , 'images'));
+        $service = Service::where('page_id', $page->id)->get();
+        // dd($page->id);
+
+        return view('web.index', compact('menu','menus', 'page', 'sign' , 'titles1' , 'titles2' , 'images' , 'service'));
     }
 
     // For Menu with Submenu
