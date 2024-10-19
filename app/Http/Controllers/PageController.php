@@ -5,6 +5,7 @@ use App\Models\Submenu;
 use App\Models\Page;
 use App\Models\Admin;
 use App\Models\Service;
+use App\Models\Project;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Auth;
@@ -29,13 +30,14 @@ class PageController extends Controller
     $page = Page::where('slug', 'home')->firstOrFail();
 
     $service = Service::where('page_id', 2)->get();
+    $project  = Project::where('page_id' , 2)->get();
     // dd($page);
 
     $titles1 = json_decode($page->banner_title);
     $titles2 = json_decode($page->banner_subtitle);
     $images = json_decode($page->banner_image);
 
-    return view('web.index', compact('menu' , 'menus', 'page' , 'titles1' , 'titles2' , 'images' , 'service'));
+    return view('web.index', compact('menu' , 'menus', 'page' , 'titles1' , 'titles2' , 'images' , 'service' , 'project'));
 }
 
 
@@ -63,8 +65,9 @@ class PageController extends Controller
     $images = json_decode($page->banner_image);
 
     $service = Service::where('page_id', $page->id)->get();
+    $project  = Project::where('page_id' , $page->id)->get();
 
-        return view('web.index', compact('menu','menus', 'sign' , 'submenu', 'page' , 'titles1' , 'titles2' , 'images' , 'service'));
+        return view('web.index', compact('menu','menus', 'sign' , 'submenu', 'page' , 'titles1' , 'titles2' , 'images' , 'service' , 'project'));
     }
 
     // For Menu without Submenu
@@ -87,9 +90,10 @@ class PageController extends Controller
         $images = json_decode($page->banner_image);
 
         $service = Service::where('page_id', $page->id)->get();
+        $project  = Project::where('page_id' , $page->id)->get();
         // dd($page->id);
 
-        return view('web.index', compact('menu','menus', 'page', 'sign' , 'titles1' , 'titles2' , 'images' , 'service'));
+        return view('web.index', compact('menu','menus', 'page', 'sign' , 'titles1' , 'titles2' , 'images' , 'service' , 'project'));
     }
 
     // For Menu with Submenu

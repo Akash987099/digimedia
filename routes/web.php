@@ -8,6 +8,8 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PagedetailsController;
 use App\Http\Controllers\ServiceController;
+Use App\Http\Controllers\ProjectController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -90,6 +92,16 @@ Route::prefix('admin')->middleware(['auth:admin'])->name('admin.')->group(functi
         Route::match(['get' , 'post'] , 'serviceAjax' , 'serviceAjax')->name('serviceAjax');
         Route::match(['get' , 'post'] , 'service-delete' , 'serviceDelete')->name('service-delete');
         Route::match(['get' , 'post'] , 'service-update' , 'serviceUpdate')->name('service-update');
+
+    });
+
+    Route::controller(ProjectController::class)->group(function(){
+
+        Route::match(['get' , 'post'] , 'project' , 'project')->name('project');
+        Route::match(['get' , 'post'] , 'ProjectAdd' , 'ProjectAdd')->name('ProjectAdd');
+        Route::match(['get' , 'post'] , 'project-delete' , 'projectDelete')->name('project-delete');
+        Route::match(['get' , 'post'] , 'projectAjax' , 'projectAjax')->name('projectAjax');
+        Route::match(['get' , 'post'] , 'project-update' , 'projectUpdate')->name('project-update');
 
     });
 

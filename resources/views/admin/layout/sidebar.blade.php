@@ -41,6 +41,7 @@
                data-feather="calendar"></i><span>Master</span></a>
             <ul class="dropdown-menu" >
                <li><a class="nav-link " href="{{route('admin.service')}}">Service Master</a></li>
+               <li><a class="nav-link " href="{{route('admin.project')}}">Project Master</a></li>
               
             </ul>
          </li>
