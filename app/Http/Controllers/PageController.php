@@ -57,7 +57,7 @@ class PageController extends Controller
                     ->where('submenu_id', $submenu->id)
                     ->firstOrFail();
 
-                    dd($page);
+                    // dd($page);
 
         
         $sign = Admin::where('id' , 1)->first();
