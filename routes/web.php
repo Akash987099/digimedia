@@ -125,6 +125,13 @@ Route::prefix('admin')->middleware(['auth:admin'])->name('admin.')->group(functi
         Route::match(['get' , 'post'] , 'update-logo' , 'updateLogo')->name('update-logo');
 
     });
+    
+    Route::controller(WebquaryController::class)->group(function(){
+
+       Route::match(['get' , 'post'] , 'query' , 'quary')->name('quary');
+       Route::match(['get' , 'post'] , 'QuaryAjax' , 'QuaryAjax')->name('QuaryAjax');
+
+    });
 
 });
 
