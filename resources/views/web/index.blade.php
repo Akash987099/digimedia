@@ -52,6 +52,10 @@
 
 
         <!-- Fact Start -->
+
+        @if ($page->slug == 'home')
+            
+       
         <div class="container-fluid bg-secondary py-5">
             <div class="container">
                 <div class="row">
@@ -82,6 +86,9 @@
                 </div>
             </div>
         </div>
+
+        @endif
+
         <!-- Fact End -->
 
 
