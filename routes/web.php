@@ -11,6 +11,7 @@ use App\Http\Controllers\ServiceController;
 Use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\WebquaryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -127,6 +128,11 @@ Route::prefix('admin')->middleware(['auth:admin'])->name('admin.')->group(functi
 
 });
 
+Route::controller(WebquaryController::class)->group(function(){
+
+    Route::match(['get' , 'post'] , 'quarysave' , 'quarysave')->name('quarysave');
+
+});
 
 Route::controller(PageController::class)->group(function() {
     

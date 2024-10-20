@@ -495,28 +495,97 @@
                             </div>
                         </div>
                         <div class="col-lg-6 wow fadeIn" data-wow-delay=".5s">
+                            <form action="" id="contactform" method="POST">
+                                @csrf
+
                             <div class="p-5 rounded contact-form">
                                 <div class="mb-4">
-                                    <input type="text" class="form-control border-0 py-3" placeholder="Your Name">
+                                    <input type="text" name="name" class="form-control border-0 py-3" placeholder="Your Name" required>
                                 </div>
                                 <div class="mb-4">
-                                    <input type="email" class="form-control border-0 py-3" placeholder="Your Email">
+                                    <input type="email" name="email" class="form-control border-0 py-3" placeholder="Your Email" required>
                                 </div>
                                 <div class="mb-4">
-                                    <input type="text" class="form-control border-0 py-3" placeholder="Project">
+                                    <input type="text" name="peoject" class="form-control border-0 py-3" placeholder="Project">
                                 </div>
                                 <div class="mb-4">
-                                    <textarea class="w-100 form-control border-0 py-3" rows="6" cols="10" placeholder="Message"></textarea>
+                                    <textarea class="w-100 form-control border-0 py-3" name="description" rows="6" cols="10" placeholder="Message" required></textarea>
                                 </div>
                                 <div class="text-start">
-                                    <button class="btn bg-primary text-white py-3 px-5" type="button">Send Message</button>
+                                    <button class="btn bg-primary text-white py-3 px-5" type="save">Send Message</button>
                                 </div>
                             </div>
+
+                        </form>
+
                         </div>
                     </div>
                 </div>
             </div> 
         </div>
         <!-- Contact End -->
+
+        <script>
+
+     $(document).ready(function(){
+
+        $('#contactform').on('submit' , function(e){
+
+            e.preventDefault();
+ 
+            var formData = new FormData(this);
+
+            $.ajax({
+                url: "{{route('quarysave')}}",
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    //console.log(response);
+
+                    if (response.status == "success") {
+
+                        Swal.fire({
+                            title: 'Success!',
+                            text: 'Thank You!',
+                            icon: 'success',
+                            confirmButtonText: 'OK'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.reload();
+                            }
+                        });
+
+                    }
+
+                    if (response.status == "error") {
+
+                        $.each(response.message, function(field, message) {
+                            $('#' + field).addClass('is-invalid');
+                            $('#' + field + '-error').text(message).addClass('text-danger');
+                        });
+
+                    }
+
+                },
+                error: function(xhr, status, error) {
+
+                    console.error(xhr.responseText);
+
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'There was a problem.',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                }
+            });
+
+        });
+
+     });
+
+        </script>
 
 @endsection
