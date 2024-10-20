@@ -6,6 +6,7 @@ use App\Models\Page;
 use App\Models\Admin;
 use App\Models\Service;
 use App\Models\Project;
+use App\Models\Team;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Auth;
@@ -31,13 +32,14 @@ class PageController extends Controller
 
     $service = Service::where('page_id', 2)->get();
     $project  = Project::where('page_id' , 2)->get();
+    $team    = Team::where('page_id' , 2)->get();
     // dd($page);
 
     $titles1 = json_decode($page->banner_title);
     $titles2 = json_decode($page->banner_subtitle);
     $images = json_decode($page->banner_image);
 
-    return view('web.index', compact('menu' , 'menus', 'page' , 'titles1' , 'titles2' , 'images' , 'service' , 'project'));
+    return view('web.index', compact('menu' , 'menus', 'page' , 'titles1' , 'titles2' , 'images' , 'service' , 'project' , 'team'));
 }
 
 
@@ -66,8 +68,9 @@ class PageController extends Controller
 
     $service = Service::where('page_id', $page->id)->get();
     $project  = Project::where('page_id' , $page->id)->get();
+    $team    = Team::where('page_id' , 2)->get();
 
-        return view('web.index', compact('menu','menus', 'sign' , 'submenu', 'page' , 'titles1' , 'titles2' , 'images' , 'service' , 'project'));
+        return view('web.index', compact('menu','menus', 'sign' , 'submenu', 'page' , 'titles1' , 'titles2' , 'images' , 'service' , 'project' , 'team'));
     }
 
     // For Menu without Submenu
@@ -91,9 +94,10 @@ class PageController extends Controller
 
         $service = Service::where('page_id', $page->id)->get();
         $project  = Project::where('page_id' , $page->id)->get();
+        $team    = Team::where('page_id' , 2)->get();
         // dd($page->id);
 
-        return view('web.index', compact('menu','menus', 'page', 'sign' , 'titles1' , 'titles2' , 'images' , 'service' , 'project'));
+        return view('web.index', compact('menu','menus', 'page', 'sign' , 'titles1' , 'titles2' , 'images' , 'service' , 'project' , 'team'));
     }
 
     // For Menu with Submenu
@@ -109,9 +113,15 @@ class PageController extends Controller
                     ->where('submenu_id', $submenu->id)
                     ->firstOrFail();
 
-                    $sign = Admin::where('id' , 1)->first();
+                    $titles1 = json_decode($page->banner_title);
+        $titles2 = json_decode($page->banner_subtitle);
+        $images = json_decode($page->banner_image);
 
-        return view('web.show', compact('page' , 'sign'));
+                    $service = Service::where('page_id', $page->id)->get();
+                    $project  = Project::where('page_id' , $page->id)->get();
+                    $team    = Team::where('page_id' , 2)->get();
+
+        return view('web.show', compact('page' , 'service' , 'project' , 'team' , 'titles1' , 'titles2' , 'images'));
     }
 
     // For Menu without Submenu

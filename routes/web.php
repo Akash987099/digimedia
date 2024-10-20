@@ -9,6 +9,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\PagedetailsController;
 use App\Http\Controllers\ServiceController;
 Use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\TeamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -102,6 +103,16 @@ Route::prefix('admin')->middleware(['auth:admin'])->name('admin.')->group(functi
         Route::match(['get' , 'post'] , 'project-delete' , 'projectDelete')->name('project-delete');
         Route::match(['get' , 'post'] , 'projectAjax' , 'projectAjax')->name('projectAjax');
         Route::match(['get' , 'post'] , 'project-update' , 'projectUpdate')->name('project-update');
+
+    });
+
+    Route::controller(TeamController::class)->group(function(){
+
+        Route::match(['get' , 'post'] , 'team' , 'team')->name('team');
+        Route::match(['get' , 'post'] , 'TeamAdd' , 'TeamAdd')->name('TeamAdd');
+        Route::match(['get' , 'post'] , 'teamAjax' , 'teamAjax')->name('teamAjax');
+        Route::match(['get' , 'post'] , 'team-delete' , 'teamDelete')->name('team-delete');
+        Route::match(['get' , 'post'] , 'team-update' , 'teamUpdate')->name('team-update');
 
     });
 

@@ -40,8 +40,7 @@
             <a href="#" class="menu-toggle nav-link has-dropdown  "><i
                data-feather="calendar"></i><span>Master</span></a>
             <ul class="dropdown-menu" >
-               <li><a class="nav-link " href="{{route('admin.service')}}">Service Master</a></li>
-               <li><a class="nav-link " href="{{route('admin.project')}}">Project Master</a></li>
+               
               
             </ul>
          </li>
@@ -54,6 +53,9 @@
                <li><a class="nav-link " href="{{route('admin.menus')}}">Menu Master</a></li>
                <li><a class="nav-link " href="{{route('admin.submenus')}}">Submenu Master</a></li>
                <li><a class="nav-link " href="{{route('admin.pages')}}">Page Master</a></li>
+               <li><a class="nav-link " href="{{route('admin.service')}}">Service Master</a></li>
+               <li><a class="nav-link " href="{{route('admin.project')}}">Project Master</a></li>
+               <li><a class="nav-link " href="{{route('admin.team')}}">Team Master</a></li>
               
             </ul>
          </li>
