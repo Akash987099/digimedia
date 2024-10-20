@@ -4,6 +4,7 @@ use App\Models\Menu;
 use App\Models\Submenu;
 use App\Models\Page;
 use App\Models\Admin;
+use App\Models\Feedback;
 use App\Models\Service;
 use App\Models\Project;
 use App\Models\Team;
@@ -33,6 +34,7 @@ class PageController extends Controller
     $service = Service::where('page_id', 2)->get();
     $project  = Project::where('page_id' , 2)->get();
     $team    = Team::where('page_id' , 2)->get();
+    $feedbacks  = Feedback::all();
     // dd($page);
 
     $titles1 = json_decode($page->banner_title);
@@ -41,7 +43,7 @@ class PageController extends Controller
 
     $admin = Admin::where('id' , 1)->first();
 
-    return view('web.index', compact('menu' , 'menus', 'page' , 'titles1' , 'titles2' , 'images' , 'service' , 'project' , 'team' , 'admin'));
+    return view('web.index', compact('menu' , 'menus', 'page' , 'titles1' , 'titles2' , 'images' , 'service' , 'project' , 'team' , 'admin' , 'feedbacks'));
 }
 
 
@@ -71,8 +73,9 @@ class PageController extends Controller
     $service = Service::where('page_id', $page->id)->get();
     $project  = Project::where('page_id' , $page->id)->get();
     $team    = Team::where('page_id' , 2)->get();
+    $feedbacks  = Feedback::all();
 
-        return view('web.index', compact('menu','menus', 'admin' , 'submenu', 'page' , 'titles1' , 'titles2' , 'images' , 'service' , 'project' , 'team'));
+        return view('web.index', compact('menu','menus', 'feedbacks' , 'admin' , 'submenu', 'page' , 'titles1' , 'titles2' , 'images' , 'service' , 'project' , 'team'));
     }
 
     // For Menu without Submenu
@@ -97,9 +100,10 @@ class PageController extends Controller
         $service = Service::where('page_id', $page->id)->get();
         $project  = Project::where('page_id' , $page->id)->get();
         $team    = Team::where('page_id' , 2)->get();
+        $feedbacks  = Feedback::all();
         // dd($page->id);
 
-        return view('web.index', compact('menu','menus', 'page', 'admin' , 'titles1' , 'titles2' , 'images' , 'service' , 'project' , 'team'));
+        return view('web.index', compact('menu','menus', 'feedbacks', 'page', 'admin' , 'titles1' , 'titles2' , 'images' , 'service' , 'project' , 'team'));
     }
 
     // For Menu with Submenu
@@ -124,8 +128,9 @@ class PageController extends Controller
                     $team    = Team::where('page_id' , 2)->get();
 
                     $admin = Admin::where('id' , 1)->first();
+                    $feedbacks  = Feedback::all();
 
-        return view('web.show', compact('page' , 'service' , 'admin' , 'project' , 'team' , 'titles1' , 'titles2' , 'images'));
+        return view('web.show', compact('page' , 'service' , 'admin' , 'feedbacks' , 'project' , 'team' , 'titles1' , 'titles2' , 'images'));
     }
 
     // For Menu without Submenu
@@ -138,8 +143,9 @@ class PageController extends Controller
                     ->firstOrFail();
 
                     $admin = Admin::where('id' , 1)->first();
+                    $feedbacks  = Feedback::all();
 
-        return view('web.show', compact('page' , 'admin'));
+        return view('web.show', compact('page' , 'feedbacks' , 'admin'));
     }
 
     

@@ -12,6 +12,7 @@ Use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WebquaryController;
+use App\Http\Controllers\FeedbackController;
 
 /*
 |--------------------------------------------------------------------------
@@ -138,6 +139,12 @@ Route::prefix('admin')->middleware(['auth:admin'])->name('admin.')->group(functi
 Route::controller(WebquaryController::class)->group(function(){
 
     Route::match(['get' , 'post'] , 'quarysave' , 'quarysave')->name('quarysave');
+
+});
+
+Route::controller(FeedbackController::class)->group(function(){
+
+    Route::match(['get' , 'post'] , 'FeedbackSave' , 'FeedbackSave')->name('FeedbackSave');
 
 });
 

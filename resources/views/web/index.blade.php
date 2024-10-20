@@ -359,90 +359,36 @@
                     <h1>Our Client Saying!</h1>
                 </div>
                 <div class="owl-carousel testimonial-carousel wow fadeIn" data-wow-delay=".5s">
-                    <div class="testimonial-item border p-4">
-                        <div class="d-flex align-items-center">
-                            <div class="">
-                                <img src="{{asset('img/testimonial-1.jpg')}}" alt="">
-                            </div>
-                            <div class="ms-4">
-                                <h4 class="text-secondary">Client Name</h4>
-                                <p class="m-0 pb-3">Profession</p>
-                                <div class="d-flex pe-5">
-                                    <i class="fas fa-star me-1 text-primary"></i>
-                                    <i class="fas fa-star me-1 text-primary"></i>
-                                    <i class="fas fa-star me-1 text-primary"></i>
-                                    <i class="fas fa-star me-1 text-primary"></i>
-                                    <i class="fas fa-star me-1 text-primary"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="border-top mt-4 pt-3">
-                            <p class="mb-0">Lorem ipsum dolor sit amet elit. Sed efficitur quis purus ut interdum aliquam dolor eget urna. Nam volutpat libero sit amet leo cursus, ac viverra eros morbi quis quam mi.</p>
-                        </div>
-                    </div>
+                  
+                  
+                    @foreach ($feedbacks as $key => $val)
+                   
+                    
                     <div class="testimonial-item border p-4">
                         <div class=" d-flex align-items-center">
                             <div class="">
-                                <img src="{{asset('img/testimonial-2.jpg')}}" alt="">
+                                <img src="{{asset(''.$val->image)}}" alt="">
                             </div>
                             <div class="ms-4">
-                                <h4 class="text-secondary">Client Name</h4>
-                                <p class="m-0 pb-3">Profession</p>
+                                <h4 class="text-secondary">{{$val->name}}</h4>
+                                {{-- <p class="m-0 pb-3">Profession</p> --}}
                                 <div class="d-flex pe-5">
-                                    <i class="fas fa-star me-1 text-primary"></i>
-                                    <i class="fas fa-star me-1 text-primary"></i>
-                                    <i class="fas fa-star me-1 text-primary"></i>
-                                    <i class="fas fa-star me-1 text-primary"></i>
-                                    <i class="fas fa-star me-1 text-primary"></i>
+                                    @for ($i = 0; $i < $val->star; $i++)
+                                        <i class="fas fa-star me-1 text-primary"></i>
+                                    @endfor
+                                    @for ($i = $val->star; $i < 5; $i++)
+                                        <i class="far fa-star me-1 text-primary"></i>
+                                    @endfor
                                 </div>
                             </div>
                         </div>
                         <div class="border-top mt-4 pt-3">
-                            <p class="mb-0">Lorem ipsum dolor sit amet elit. Sed efficitur quis purus ut interdum aliquam dolor eget urna. Nam volutpat libero sit amet leo cursus, ac viverra eros morbi quis quam mi.</p>
+                            <p class="mb-0">{{$val->description}}</p>
                         </div>
                     </div>
-                    <div class="testimonial-item border p-4">
-                        <div class=" d-flex align-items-center">
-                            <div class="">
-                                <img src="{{asset('img/testimonial-3.jpg')}}" alt="">
-                            </div>
-                            <div class="ms-4">
-                                <h4 class="text-secondary">Client Name</h4>
-                                <p class="m-0 pb-3">Profession</p>
-                                <div class="d-flex pe-5">
-                                    <i class="fas fa-star me-1 text-primary"></i>
-                                    <i class="fas fa-star me-1 text-primary"></i>
-                                    <i class="fas fa-star me-1 text-primary"></i>
-                                    <i class="fas fa-star me-1 text-primary"></i>
-                                    <i class="fas fa-star me-1 text-primary"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="border-top mt-4 pt-3">
-                            <p class="mb-0">Lorem ipsum dolor sit amet elit. Sed efficitur quis purus ut interdum aliquam dolor eget urna. Nam volutpat libero sit amet leo cursus, ac viverra eros morbi quis quam mi.</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-item border p-4">
-                        <div class=" d-flex align-items-center">
-                            <div class="">
-                                <img src="{{asset('img/testimonial-4.jpg')}}" alt="">
-                            </div>
-                            <div class="ms-4">
-                                <h4 class="text-secondary">Client Name</h4>
-                                <p class="m-0 pb-3">Profession</p>
-                                <div class="d-flex pe-5">
-                                    <i class="fas fa-star me-1 text-primary"></i>
-                                    <i class="fas fa-star me-1 text-primary"></i>
-                                    <i class="fas fa-star me-1 text-primary"></i>
-                                    <i class="fas fa-star me-1 text-primary"></i>
-                                    <i class="fas fa-star me-1 text-primary"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="border-top mt-4 pt-3">
-                            <p class="mb-0">Lorem ipsum dolor sit amet elit. Sed efficitur quis purus ut interdum aliquam dolor eget urna. Nam volutpat libero sit amet leo cursus, ac viverra eros morbi quis quam mi.</p>
-                        </div>
-                    </div>
+
+                    @endforeach
+                    
                 </div>
             </div>
         </div>
@@ -532,6 +478,62 @@
         </div>
         <!-- Contact End -->
 
+
+        {{-- feedback --}}
+
+        <div class="container-fluid py-5 mb-5">
+            <div class="container">
+                <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
+                    <h5 class="text-primary">Get In Touch</h5>
+                    <h1 class="mb-3">Feedback</h1>
+                    {{-- <p class="mb-2">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p> --}}
+                </div>
+                <div class="contact-detail position-relative p-5">
+                   
+                    <div class="row g-5">
+                        
+                        <div class="col-lg-12 wow fadeIn" data-wow-delay=".5s">
+                            <form action="" id="feedbackform" method="POST">
+                                @csrf
+
+                            <div class="p-5 rounded contact-form">
+                                <div class="mb-4">
+                                    <input type="text" name="name" class="form-control border-0 py-3" placeholder="Your Name" required>
+                                </div>
+                                <div class="mb-4">
+                                    <input type="email" name="email" class="form-control border-0 py-3" placeholder="Your Email" required>
+                                </div>
+                                <div class="mb-4">
+                                    <input type="file" name="image" class="form-control border-0 py-3" placeholder="Your Email">
+                                </div>
+                                <div class="mb-4">
+                                    <select name="star" id="" class="form-control" required>
+                                        <option value="">Select Star</option>
+                                        <option value="1">1 Star</option>
+                                        <option value="2">2 star</option>
+                                        <option value="3">3 Star</option>
+                                        <option value="4">4 Star</option>
+                                        <option value="5">5 Star</option>
+                                    </select>
+                                </div>
+                                <div class="mb-4">
+                                    <textarea class="w-100 form-control border-0 py-3" name="description" rows="6" cols="10" placeholder="Message" required></textarea>
+                                </div>
+                                <div class="text-start">
+                                    <button class="btn bg-primary text-white py-3 px-5" type="save">Send Message</button>
+                                </div>
+                            </div>
+
+                        </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+
+        {{-- feedback end --}}
+
         <script>
 
      $(document).ready(function(){
@@ -590,6 +592,61 @@
             });
 
         });
+
+        $('#feedbackform').on('submit' , function(e){
+
+e.preventDefault();
+
+var formData = new FormData(this);
+
+$.ajax({
+    url: "{{route('FeedbackSave')}}",
+    type: "POST",
+    data: formData,
+    processData: false,
+    contentType: false,
+    success: function(response) {
+        //console.log(response);
+
+        if (response.status == "success") {
+
+            Swal.fire({
+                title: 'Success!',
+                text: 'Thank You!',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.reload();
+                }
+            });
+
+        }
+
+        if (response.status == "error") {
+
+            $.each(response.message, function(field, message) {
+                $('#' + field).addClass('is-invalid');
+                $('#' + field + '-error').text(message).addClass('text-danger');
+            });
+
+        }
+
+    },
+    error: function(xhr, status, error) {
+
+        console.error(xhr.responseText);
+
+        Swal.fire({
+            title: 'Error!',
+            text: 'There was a problem.',
+            icon: 'error',
+            confirmButtonText: 'OK'
+        });
+    }
+});
+
+});
 
      });
 
