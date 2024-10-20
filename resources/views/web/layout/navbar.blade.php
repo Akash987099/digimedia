@@ -4,7 +4,7 @@
         <nav class="navbar navbar-dark navbar-expand-lg py-0">
             <a href="" class="navbar-brand">
                 <h1 class="text-white fw-bold d-block">
-                <img src="{{$admin->header_logo}}" alt="" height="60">    
+                <img src="{{asset(''.$admin->header_logo)}}" alt="" height="60">    
                 </span> </h1>
             </a>
             <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
