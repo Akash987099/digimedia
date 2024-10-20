@@ -18,7 +18,7 @@
 
                         <div class="card-header supreme-container">
 
-                            <h4>Service Master</h4>
+                            <h4>Quary Master</h4>
 
                             
 

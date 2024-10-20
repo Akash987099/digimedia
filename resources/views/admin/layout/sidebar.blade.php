@@ -59,6 +59,17 @@
               
             </ul>
          </li>
+
+         <li class="dropdown">
+            <a href="#" class="menu-toggle nav-link has-dropdown  "><i
+               data-feather="calendar"></i><span>Web Master</span></a>
+            <ul class="dropdown-menu" >
+               
+               <li><a class="nav-link " href="{{route('admin.quary')}}">Quary Master</a></li>
+               <li><a class="nav-link " href="{{route('admin.feedback')}}">Feedback Master</a></li>
+              
+            </ul>
+         </li>
          
       </ul>
      

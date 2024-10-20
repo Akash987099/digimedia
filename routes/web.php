@@ -134,6 +134,13 @@ Route::prefix('admin')->middleware(['auth:admin'])->name('admin.')->group(functi
 
     });
 
+    Route::controller(FeedbackController::class)->group(function(){
+
+        Route::match(['get' , 'post'] , 'feedback' , 'feedback')->name('feedback');
+        Route::match(['get' , 'post'] , 'FeedbackAjax', 'FeedbackAjax')->name('FeedbackAjax');
+    
+    });
+
 });
 
 Route::controller(WebquaryController::class)->group(function(){
