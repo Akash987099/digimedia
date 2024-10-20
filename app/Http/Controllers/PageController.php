@@ -39,7 +39,9 @@ class PageController extends Controller
     $titles2 = json_decode($page->banner_subtitle);
     $images = json_decode($page->banner_image);
 
-    return view('web.index', compact('menu' , 'menus', 'page' , 'titles1' , 'titles2' , 'images' , 'service' , 'project' , 'team'));
+    $admin = Admin::where('id' , 1)->first();
+
+    return view('web.index', compact('menu' , 'menus', 'page' , 'titles1' , 'titles2' , 'images' , 'service' , 'project' , 'team' , 'admin'));
 }
 
 
@@ -60,7 +62,7 @@ class PageController extends Controller
                     // dd($page);
 
         
-        $sign = Admin::where('id' , 1)->first();
+                    $admin = Admin::where('id' , 1)->first();
 
         $titles1 = json_decode($page->banner_title);
     $titles2 = json_decode($page->banner_subtitle);
@@ -70,7 +72,7 @@ class PageController extends Controller
     $project  = Project::where('page_id' , $page->id)->get();
     $team    = Team::where('page_id' , 2)->get();
 
-        return view('web.index', compact('menu','menus', 'sign' , 'submenu', 'page' , 'titles1' , 'titles2' , 'images' , 'service' , 'project' , 'team'));
+        return view('web.index', compact('menu','menus', 'admin' , 'submenu', 'page' , 'titles1' , 'titles2' , 'images' , 'service' , 'project' , 'team'));
     }
 
     // For Menu without Submenu
@@ -86,7 +88,7 @@ class PageController extends Controller
                     ->firstOrFail();
     
 
-        $sign = Admin::where('id' , 1)->first();
+        $admin = Admin::where('id' , 1)->first();
 
         $titles1 = json_decode($page->banner_title);
         $titles2 = json_decode($page->banner_subtitle);
@@ -97,7 +99,7 @@ class PageController extends Controller
         $team    = Team::where('page_id' , 2)->get();
         // dd($page->id);
 
-        return view('web.index', compact('menu','menus', 'page', 'sign' , 'titles1' , 'titles2' , 'images' , 'service' , 'project' , 'team'));
+        return view('web.index', compact('menu','menus', 'page', 'admin' , 'titles1' , 'titles2' , 'images' , 'service' , 'project' , 'team'));
     }
 
     // For Menu with Submenu
@@ -121,7 +123,9 @@ class PageController extends Controller
                     $project  = Project::where('page_id' , $page->id)->get();
                     $team    = Team::where('page_id' , 2)->get();
 
-        return view('web.show', compact('page' , 'service' , 'project' , 'team' , 'titles1' , 'titles2' , 'images'));
+                    $admin = Admin::where('id' , 1)->first();
+
+        return view('web.show', compact('page' , 'service' , 'admin' , 'project' , 'team' , 'titles1' , 'titles2' , 'images'));
     }
 
     // For Menu without Submenu
@@ -133,9 +137,9 @@ class PageController extends Controller
                     ->where('menu_id', $menu->id)
                     ->firstOrFail();
 
-                    $sign = Admin::where('id' , 1)->first();
+                    $admin = Admin::where('id' , 1)->first();
 
-        return view('web.show', compact('page' , 'sign'));
+        return view('web.show', compact('page' , 'admin'));
     }
 
     

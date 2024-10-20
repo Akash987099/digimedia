@@ -3,7 +3,9 @@
     <div class="container">
         <nav class="navbar navbar-dark navbar-expand-lg py-0">
             <a href="" class="navbar-brand">
-                <h1 class="text-white fw-bold d-block">Digi<span class="text-secondary">Prologue</span> </h1>
+                <h1 class="text-white fw-bold d-block">
+                <img src="{{$admin->header_logo}}" alt="" height="60">    
+                </span> </h1>
             </a>
             <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
@@ -78,7 +80,7 @@
                 </div>
                 <div class="d-flex flex-column pe-4 border-end">
                     <span class="text-white-50">Have any questions?</span>
-                    <span class="text-secondary">Call: + 91 85330 74414</span>
+                    <span class="text-secondary">Call: + 91 {{$admin->mobile}}</span>
                 </div>
                 <div class="d-flex align-items-center justify-content-center ms-4 ">
                     <a href="#"><i class="bi bi-search text-white fa-2x"></i> </a>

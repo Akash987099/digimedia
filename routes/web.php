@@ -10,6 +10,7 @@ use App\Http\Controllers\PagedetailsController;
 use App\Http\Controllers\ServiceController;
 Use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -113,6 +114,14 @@ Route::prefix('admin')->middleware(['auth:admin'])->name('admin.')->group(functi
         Route::match(['get' , 'post'] , 'teamAjax' , 'teamAjax')->name('teamAjax');
         Route::match(['get' , 'post'] , 'team-delete' , 'teamDelete')->name('team-delete');
         Route::match(['get' , 'post'] , 'team-update' , 'teamUpdate')->name('team-update');
+
+    });
+
+    Route::controller(ProfileController::class)->group(function(){
+
+        Route::match(['get' , 'post'] , 'profile' , 'profile')->name('profile');
+        Route::match(['get' , 'post'] , 'update-profile' , 'updateProfile')->name('update-profile');
+        Route::match(['get' , 'post'] , 'update-logo' , 'updateLogo')->name('update-logo');
 
     });
 
