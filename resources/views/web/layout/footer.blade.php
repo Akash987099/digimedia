@@ -21,21 +21,25 @@
                     <div class="col-lg-3 col-md-6">
                         <a href="#" class="h3 text-secondary">Short Link</a>
                         <div class="mt-4 d-flex flex-column short-link">
-                            <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>About us</a>
-                            <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Contact us</a>
-                            <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Our Services</a>
-                            <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Our Projects</a>
-                            <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Latest Blog</a>
+                            @foreach($menus as $menu)
+                            <a href="{{ isset($menu->page) ? route('page.show.menu', ['menu_slug' => $menu->slug, 'page_slug' => $menu->page->slug]) : '#' }}" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>{{$menu->name}}</a>
+                            @endforeach
+
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
-                        <a href="#" class="h3 text-secondary">Help Link</a>
+                        <a href="#" class="h3 text-secondary">Extra Link</a>
                         <div class="mt-4 d-flex flex-column help-link">
-                            <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Terms Of use</a>
-                            <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Privacy Policy</a>
-                            <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Helps</a>
-                            <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>FQAs</a>
-                            <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Contact</a>
+
+                            @foreach($menu->submenus as $submenu)
+
+                            <a href="{{ route('page.show', [
+                                            'menu_slug' => $menu->slug,
+                                            'submenu_slug' => $submenu->slug,
+                                            'page_slug' => $submenu->page->slug
+                                        ]) }}" class="dropdown-item">{{ $submenu->name }}" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Terms Of use</a>
+
+                            @endforeach
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
