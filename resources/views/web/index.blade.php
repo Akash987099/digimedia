@@ -124,7 +124,10 @@
 
 
         <!-- Services Start -->
-        @if (!empty($service))
+
+        {{-- {{dump($service), "--0---"}} --}}
+        
+        @if (!empty($service) && count($service) > 0)  
 
         <div class="container-fluid services py-5 mb-5">
             <div class="container">
@@ -165,7 +168,7 @@
 
         <!-- Project Start -->
 
-        @if (!empty($project))
+        @if (!empty($project) && count($project) > 0) 
             
        
         <div class="container-fluid project py-5 mb-5">
@@ -311,8 +314,8 @@
 
         <!-- Team Start -->
 
-        @if (!empty($team))
-        
+        @if (!empty($team) && count($team) > 0) 
+
         <div class="container-fluid py-5 mb-5 team">
             <div class="container">
                 <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
