@@ -367,7 +367,7 @@
                     @foreach ($feedbacks as $key => $val)
                    
                     
-                    <div class="testimonial-item border p-4 d-flex">
+                    <div class="testimonial-item border p-4">
                         <div class=" d-flex align-items-center">
                             <div class="">
                                 <img src="{{asset(''.$val->image)}}" alt="">
