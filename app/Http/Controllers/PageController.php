@@ -33,7 +33,7 @@ class PageController extends Controller
 
     $service = Service::where('page_id', 2)->get();
     $project  = Project::where('page_id' , 2)->get();
-    $team    = Team::where('page_id' , 11)->get();
+    $team    = Team::where('page_id' , 2)->get();
     $feedbacks  = Feedback::all();
     // dd($page);
 
@@ -72,7 +72,7 @@ class PageController extends Controller
 
     $service = Service::where('page_id', $page->id)->get();
     $project  = Project::where('page_id' , $page->id)->get();
-    $team    = Team::where('page_id' , 11)->get();
+    $team    = Team::where('page_id' , $page->id)->get();
     $feedbacks  = Feedback::all();
 
         return view('web.index', compact('menu','menus', 'feedbacks' , 'admin' , 'submenu', 'page' , 'titles1' , 'titles2' , 'images' , 'service' , 'project' , 'team'));
@@ -99,7 +99,7 @@ class PageController extends Controller
 
         $service = Service::where('page_id', $page->id)->get();
         $project  = Project::where('page_id' , $page->id)->get();
-        $team    = Team::where('page_id' , 11)->get();
+        $team    = Team::where('page_id' , $page->id)->get();
         $feedbacks  = Feedback::all();
         // dd($page->id);
 
