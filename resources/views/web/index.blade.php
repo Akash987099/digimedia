@@ -329,7 +329,7 @@
                     <div class="rounded team-item">
                         <div class="team-content">
                             <div class="team-img-icon">
-                                <div class="team-img rounded-circle">
+                                <div class="team-img">
                                     <img src="{{asset(''.$val->image)}}" class="img-fluid w-100 " height="50" alt="">
                                 </div>
                                 <div class="team-name text-center py-3">
