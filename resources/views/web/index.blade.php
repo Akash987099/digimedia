@@ -314,7 +314,7 @@
 
         <!-- Team Start -->
 
-        @if (!empty($team)) 
+        @if (!empty($team) && count($team) > 0) 
 
         <div class="container-fluid py-5 mb-5 team">
             <div class="container">
